@@ -222,6 +222,40 @@
        width: 100%;
       }
 
+        /* Back to Top Button Styles */
+  .back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: #0d6efd;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 999;
+  }
+  
+  .back-to-top:hover {
+    background-color: #0b5ed7;
+    transform: translateY(-3px);
+  }
+  
+  .back-to-top.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .back-to-top i {
+    font-size: 1.2rem;
+  }
+
   </style>
 
   <style>
@@ -711,8 +745,8 @@
     </div>
   </section>
 
-<!-- Testimonials Section -->
-<section class="section" id="testimonials">
+  <!-- Testimonials Section -->
+  <section class="section" id="testimonials">
   <div class="container">
     <h2 class="text-center mb-5">What People Say</h2>
     
@@ -775,7 +809,7 @@
       </div>
     </div>
   </div>
-</section>
+  </section>
 
 
 
@@ -783,8 +817,8 @@
 
 
 
-<!-- Contact Section with Form -->
-<section class="section" id="contact">
+  <!-- Contact Section with Form -->
+  <section class="section" id="contact">
   <div class="container">
     <h2 class="text-center mb-5">GET IN TOUCH</h2>
     
@@ -823,20 +857,21 @@
       </div>
     </div>
   </div>
-</section>
+  </section>
 
-<!-- Footer -->
-<footer class="text-center p-4 bg-dark">
+  <!-- Footer -->
+  <footer class="text-center p-4 bg-dark">
   <div class="container">
     <p class="mb-0">&copy; 2025 Harold John S. Ambid. All rights reserved.</p>
   </div>
-</footer>
+  </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
   <!-- Add these right before your closing </body> tag -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+
   <script>
   $(document).ready(function() {
   $('.image-popup').magnificPopup({
@@ -853,6 +888,29 @@
       duration: 300
     }
   });
+  });
+  </script>
+
+  <a href="#" id="back-to-top" class="back-to-top">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+<script>
+  // Back to Top Button Functionality
+  window.addEventListener('scroll', function() {
+    var backToTop = document.getElementById('back-to-top');
+    if (window.pageYOffset > 300) {
+      backToTop.classList.add('active');
+    } else {
+      backToTop.classList.remove('active');
+    }
+  });
+  
+  document.getElementById('back-to-top').addEventListener('click', function(e) {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   });
 </script>
 </body>
